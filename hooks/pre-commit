@@ -13,15 +13,15 @@ if [[ "${HAS_NOT_NODE}" == "not found" ]]; then
   exit 0
 fi
 declare FILES
-FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g' | sed 's|\[|\\\\[|g' | sed 's|\]|\\\\]|g')
+FILES=$(git diff --cached --name-only --diff-filter=ACMR)
 [ -z "$FILES" ] && exit 0
 
 # secretlint
 echo "  ▶ Check credentials by secretlint"
 if [ -f "$PWD/.secretlintignore" ]; then
-    echo "$FILES" | xargs "${parentDir}/node_modules/.bin/secretlint" --secretlintignore "$PWD/.secretlintignore" --secretlintrc "${parentDir}/.secretlintrc.json"
+    echo "$FILES" | tr '\n' '\0' | xargs -0 "${parentDir}/node_modules/.bin/secretlint" --secretlintignore "$PWD/.secretlintignore" --secretlintrc "${parentDir}/.secretlintrc.json"
 else
-    echo "$FILES" | xargs "${parentDir}/node_modules/.bin/secretlint" --secretlintrc "${parentDir}/.secretlintrc.json"
+    echo "$FILES" | tr '\n' '\0' | xargs -0 "${parentDir}/node_modules/.bin/secretlint" --secretlintrc "${parentDir}/.secretlintrc.json"
 fi
 
 RET=$?
@@ -30,3 +30,4 @@ if [ $RET -eq 0 ] ;then
 else
     exit 1
 fi
+
