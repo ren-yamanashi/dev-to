@@ -1,0 +1,19 @@
+{
+  "name": "dev.to",
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.17.1",
+  "devDependencies": {
+    "@secretlint/secretlint-rule-preset-recommend": "^11.2.5",
+    "secretlint": "^11.2.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ren-yamanashi/dev-to.git"
+  },
+  "author": {
+    "name": "ren-yamanashi"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
