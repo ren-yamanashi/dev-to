@@ -1,4 +1,4 @@
-# Zenn 記事を dev.to へ翻訳・変換
+# Zenn 記事を dev.to へ翻訳
 
 GitHub 上の Zenn 記事を取得し、英語に翻訳して dev.to 形式に変換してください。
 
