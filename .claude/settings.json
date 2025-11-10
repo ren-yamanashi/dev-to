@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(curl -L https://raw.githubusercontent.com/ren-yamanashi/zenn/main/articles/*)"
     ],
     "deny": [],
     "ask": []

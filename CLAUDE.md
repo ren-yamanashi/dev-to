@@ -74,45 +74,60 @@ Detail content
 
 **dev.to への変換**
 
+埋め込みリンクがサポートされている場合:
+
 ```markdown
 {% embed URL %}
 ```
 
+埋め込みリンクがサポートされていない場合:
+
+```markdown
+{% cta link %} description {% endcta %}
+```
+
+_Supported URL Embeds_
+
+- DEV Community Comment
+- DEV Community Link
+- DEV Community Link
+- DEV Community Listing
+- DEV Community Organization
+- DEV Community Podcast Episode
+- DEV Community Tag
+- DEV Community User Profile
+- asciinema
+- CodePen
+- CodeSandbox
+- DotNetFiddle
+- GitHub Gist, Issue or Repository
+- Glitch
+- Instagram
+- JSFiddle
+- JSitor
+- Loom
+- Kotlin
+- Medium
+- Next Tech
+- Reddit
+- Replit
+- Slideshare
+- Speaker Deck
+- SoundCloud
+- Spotify
+- StackBlitz
+- Stackery
+- Stack Exchange or Stack Overflow
+- Twitch
+- Twitter
+- Twitter timeline
+- Wikipedia
+- Vimeo
+- YouTube
+
 <br />
 
-#### 2.4 Twitter/X 埋め込みの変換
-
-**Zenn**
-
-```markdown
-@[tweet](ツイートURL)
-```
-
-**dev.to への変換**
-
-```markdown
-{% twitter ツイートURL %}
-```
-
-<br />
-
-#### 2.5 YouTube 埋め込みの変換
-
-**Zenn**
-
-```markdown
-@[youtube](動画ID)
-```
-
-**dev.to への変換**
-
-```markdown
-{% youtube 動画ID %}
-```
-
-<br />
-
-#### 2.6 数式記法の変換
+#### 2.4 数式記法の変換
 
 **Zenn のインライン数式**
 
@@ -153,7 +168,7 @@ $$
 title: "記事タイトル"
 emoji: "🚀"
 type: "tech"
-topics: ["react", "typescript"]
+topics: ["aws", "cdk", "typescript"]
 published: true
 ---
 ```
@@ -164,11 +179,7 @@ published: true
 ---
 title: Article Title
 published: true
-tags: react, typescript, javascript, webdev
-cover_image: https://example.com/cover.jpg
-description: Brief description of the article
-series: Series Name (optional)
-canonical_url: https://zenn.dev/original-url
+tags: aws, cdk, typescript
 ---
 ```
 
@@ -197,6 +208,11 @@ canonical_url: https://zenn.dev/original-url
   - ただし、チームや組織を示している場合は `We` を使用
   - どの一人称を利用すれば良いか不明な場合は、予測せず、常にユーザーに確認すること
 
+#### 4.5 URL のローカライズ
+
+- 日本語記事内のリンクが日本語ページを指している場合、可能であれば英語版の URL に置き換える
+  - 例: `https://eslint-plugin-awscdk.dev/ja/` → `https://eslint-plugin-awscdk.dev/`
+
 ### 5. SEO とアクセシビリティ
 
 - 見出し（h1, h2, h3）の階層構造を適切に保つ
@@ -208,3 +224,30 @@ canonical_url: https://zenn.dev/original-url
 - シリーズ記事の場合は series フィールドを設定
 - 関連記事へのリンクは dev.to の記法を使用
 - Liquid タグを活用してインタラクティブな要素を追加可能
+
+### 7. dev.to 向けのフォーマット最適化
+
+#### 7.1 視覚的な改善
+
+- セクション間に水平線（`---`）を追加して読みやすさを向上
+- 重要なメッセージ（Note, Warning）は斜体を使用して強調
+  - 例: `> ℹ️ _**Note:** Message content_`
+- 番号付きステップは太字（`**1.**`, `**2.**`）で強調
+
+#### 7.2 コードブロックの最適化
+
+- コードブロックにファイル名をコメントとして追加
+  - 例: `// package.json`, `// lib/my-stack.ts`
+- Zenn の言語指定付きコードブロック（e.g. `json:package.json`）は、シンプルな言語指定（e.g. `json`, `javascript`）に変換
+  - 差分表示 (e.g. `diff json:package.json`) もシンプルに `diff` に変換
+
+#### 7.3 リンクの最適化
+
+- 外部リンクは説明的なマークダウンリンク形式を使用
+  - 例: `[ESLint](https://eslint.org/)`
+  - 例: `[ESLint - Visual Studio Marketplace](https://marketplace.visualstudio.com/...)`
+
+#### 7.4 構造的な改善
+
+- `<details>` および `<summary>` タグは dev.to では利用できないため、セクションを分割して見出しを使用
+  - 例: `#### details` セクションを作成し、内容をその下に配置
