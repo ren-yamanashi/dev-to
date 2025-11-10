@@ -5,7 +5,6 @@ GitHub 上の Zenn 記事を取得し、英語に翻訳して dev.to 形式に�
 ## 入力
 
 GitHub URL: $ARGUMENTS
-md
 
 ## 実行手順
 
