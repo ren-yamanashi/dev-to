@@ -124,6 +124,22 @@ yarn lint
 pnpm lint
 ```
 
+### Troubleshooting
+
+Here are solutions to common issues you might encounter when setting up ESLint.
+
+#### Case1. ESLint Errors appear in terminal but not in editor
+
+If you encounter this issue, reviewing the extension version or reloading (or restarting) the editor might be effective (since this is an editor-related issue).
+
+#### Case2. No ESLint errors appear in terminal
+
+If you encounter this issue, running `npm run lint --debug` to check if ESLint (or a specific ESLint rule) is functioning correctly may provide clues for resolution.
+
+For more details, please refer to the following documentation:
+
+https://eslint.org/docs/latest/use/configure/debug
+
 ---
 
 ## Customizing Rules
@@ -246,21 +262,3 @@ Master ESLint and enjoy comfortable CDK development!!
 [typescript-eslint Documentation](https://typescript-eslint.io/getting-started/)
 
 [eslint-plugin-awscdk Documentation](https://eslint-plugin-awscdk.dev/)
-
----
-
-## Appendix (ESLint Troubleshooting)
-
-Here are some ways to deal with troubleshooting when using ESLint.
-
-### Case1. ESLint Errors appear in terminal but not in editor
-
-If you encounter this issue, reviewing the extension version or reloading (or restarting) the editor might be effective (since this is an editor-related issue).
-
-### Case2. No ESLint errors appear in terminal
-
-If you encounter this issue, running `npm run lint --debug` to check if ESLint (or a specific ESLint rule) is functioning correctly may provide clues for resolution.
-
-For more details, please refer to the following documentation:
-
-https://eslint.org/docs/latest/use/configure/debug
