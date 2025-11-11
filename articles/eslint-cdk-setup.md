@@ -56,7 +56,7 @@ import eslint from "@eslint/js";
 import { defineConfig } from "eslint/config";
 import tsEslint from "typescript-eslint";
 
-export default defineConfig([
+export default defineConfig(
   // Apply ESLint recommended settings
   eslint.configs.recommended,
   ...tsEslint.configs.recommended,
@@ -76,7 +76,7 @@ export default defineConfig([
   {
     ignores: ["cdk.out", "node_modules", "*.js"],
   }
-]);
+);
 ```
 
 ## 4. Installing Editor Extensions
@@ -154,9 +154,10 @@ For example, if you don't want errors for "unused variables," modify the configu
 ```diff
 // eslint.config.mjs
 import eslint from "@eslint/js";
+import { defineConfig } from "eslint/config";
 import tsEslint from "typescript-eslint";
 
-export default tsEslint.config(
+export default defineConfig(
     // omitted
     rules: {
 +     "no-unused-vars": "off",
@@ -228,10 +229,11 @@ pnpm install -D eslint-plugin-awscdk
 ```diff
 // eslint.config.mjs
 import eslint from "@eslint/js";
+import { defineConfig } from "eslint/config";
 import tsEslint from "typescript-eslint";
 +import cdkPlugin from "eslint-plugin-awscdk";
 
-export default tsEslint.config(
+export default defineConfig(
   // Apply ESLint recommended settings
   eslint.configs.recommended,
   ...tsEslint.configs.recommended,
